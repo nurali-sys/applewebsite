@@ -1,0 +1,301 @@
+/*
+  Global reset and core theme variables.
+  Colors and spacing mimic a modern defense-tech visual style while using original placeholder values.
+*/
+:root {
+  --bg: #07090d;
+  --surface: #0f141c;
+  --surface-alt: #151d28;
+  --text: #f5f7fb;
+  --muted: #a8b2c3;
+  --accent: #4f89ff;
+  --accent-hover: #6a9bff;
+  --line: #273346;
+  --max-width: 1160px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(100% - 3rem, var(--max-width));
+  margin-inline: auto;
+}
+
+/* Header styles: sticky layout with enterprise nav hierarchy */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(7, 9, 13, 0.84);
+  border-bottom: 1px solid rgba(39, 51, 70, 0.45);
+}
+
+.header-inner {
+  min-height: 4.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.brand {
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.primary-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.primary-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.primary-nav a:hover,
+.primary-nav a:focus-visible {
+  color: var(--text);
+}
+
+/* Shared button styles for strong calls to action */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 0.72rem 1.35rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-primary,
+.header-cta {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover,
+.header-cta:hover {
+  background: var(--accent-hover);
+}
+
+.header-cta {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.65rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Hero: gradient overlays and left-aligned content block */
+.hero {
+  position: relative;
+  min-height: 82vh;
+  display: grid;
+  align-items: center;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(79, 137, 255, 0.18), transparent 42%),
+    linear-gradient(120deg, #0b1018 0%, #07090d 62%);
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(7, 9, 13, 0.15), rgba(7, 9, 13, 0.75)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.015),
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px,
+      transparent 44px
+    );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 48rem;
+  padding-block: 6rem;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #8ca6d9;
+  font-size: 0.78rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.08;
+}
+
+.hero-copy {
+  margin: 1.3rem 0 2rem;
+  color: var(--muted);
+  max-width: 40ch;
+}
+
+/* Featured grid section for products/about/news cards */
+.featured {
+  padding: 5rem 0;
+}
+
+.featured h2 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.card {
+  background: linear-gradient(180deg, var(--surface-alt), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 1rem;
+}
+
+.media-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 0.65rem;
+  background:
+    linear-gradient(145deg, rgba(79, 137, 255, 0.25), rgba(255, 255, 255, 0.04)),
+    #0a0f16;
+  border: 1px solid rgba(140, 166, 217, 0.28);
+  margin-bottom: 0.9rem;
+}
+
+.card h3 {
+  margin: 0.2rem 0 0.45rem;
+}
+
+.card p {
+  color: var(--muted);
+  margin: 0 0 0.85rem;
+}
+
+.text-link {
+  color: #a6c2ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.text-link:hover {
+  color: #c0d5ff;
+}
+
+/* Footer section with subtle divider and compact action */
+.site-footer {
+  border-top: 1px solid rgba(39, 51, 70, 0.5);
+  padding: 1.35rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-inner p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.btn-secondary {
+  border-color: var(--line);
+  color: var(--text);
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive breakpoints: collapse nav and card layout for tablet/mobile */
+@media (max-width: 900px) {
+  .header-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.8rem 0;
+  }
+
+  .primary-nav {
+    width: 100%;
+    order: 3;
+  }
+
+  .primary-nav ul {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.2rem;
+    padding-top: 0.35rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 1.5rem, var(--max-width));
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero-content {
+    padding-block: 4.5rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
